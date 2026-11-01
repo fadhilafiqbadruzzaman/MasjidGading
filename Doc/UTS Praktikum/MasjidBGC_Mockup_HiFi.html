@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masjid BGC - Mockup Hi-Fi (Android 360x800)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    :root {
+      --primary: #1B5E20;
+      --primary-dark: #0D330F;
+      --primary-light: #4CAF50;
+      --secondary: #2E7D32;
+      --accent-gold: #D4AF37;
+      --background: #F8F9FA;
+      --surface: #FFFFFF;
+      --text-dark: #212121;
+      --text-muted: #757575;
+      --border: #E0E0E0;
+    }
+    body {
+      background-color: #E2E8F0;
+      padding: 40px 20px;
+      color: var(--text-dark);
+    }
+    .header-banner {
+      max-width: 1560px;
+      margin: 0 auto 30px auto;
+      background: var(--surface);
+      padding: 24px 32px;
+      border-radius: 12px;
+      border-left: 6px solid var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06);
+    }
+    .header-banner h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .header-banner p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .board {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .screen-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .screen-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      background: var(--surface);
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid #CBD5E1;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      letter-spacing: 0.5px;
+    }
+
+    /* Mobile Frame Android 360 x 800 */
+    .mobile-frame {
+      width: 360px;
+      height: 800px;
+      background-color: var(--background);
+      border-radius: 32px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+      border: 4px solid #1E293B;
+    }
+
+    /* Status Bar */
+    .status-bar {
+      height: 26px;
+      background: var(--primary-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #FFFFFF;
+      flex-shrink: 0;
+    }
+    .status-bar.light-bg {
+      background: var(--primary);
+    }
+
+    /* AppBar */
+    .app-bar {
+      height: 52px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+      flex-shrink: 0;
+      color: #FFFFFF;
+    }
+    .app-bar-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    /* Screen Body */
+    .screen-body {
+      flex: 1;
+      overflow-y: auto;
+      background: var(--background);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+      height: 60px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-shrink: 0;
+      padding: 4px 6px;
+    }
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-decoration: none;
+      flex: 1;
+    }
+    .nav-item.active {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .nav-icon {
+      font-size: 18px;
+      line-height: 1;
+    }
+    .nav-item.active .nav-icon {
+      color: var(--primary);
+    }
+
+    /* UI Cards & Elements */
+    .card {
+      background: var(--surface);
+      border-radius: 14px;
+      border: 1px solid #EDEDED;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(27, 94, 32, 0.25);
+    }
+    .btn-accent {
+      background: var(--accent-gold);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Grid Layanan */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px 6px;
+      padding: 10px 0;
+    }
+    .service-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 5px;
+    }
+    .service-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #FFFFFF;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    }
+    .service-name {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    /* Prayer Times Widget */
+    .prayer-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 14px;
+      padding: 10px 8px;
+      display: flex;
+      justify-content: space-around;
+      color: #FFFFFF;
+    }
+    .prayer-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .prayer-label {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+    }
+    .prayer-time {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .prayer-col.next-prayer {
+      background: rgba(212, 175, 55, 0.35);
+      padding: 2px 6px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-gold);
+    }
+
+    /* Progress Bar */
+    .progress-track {
+      height: 7px;
+      background: #E5E7EB;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 10px;
+    }
+
+    /* Input Field */
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .form-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: 12px;
+      background: #FFFFFF;
+      outline: none;
+    }
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-banner">
+    <h1>Mockup Masjid BGC (High-Fidelity)</h1>
+    <p>Standar Frame: Android 360 × 800 px | Tema: Islamic Green (#1B5E20), Gold Accent (#D4AF37) | Material Design 3</p>
+  </div>
+
+  <div class="board">
+
+    <!-- Screen 1: Login Akun Jamaah -->
+    <div class="screen-wrapper">
+      <div class="screen-label">1. Mockup - Masuk Akun</div>
+      <div class="mobile-frame">
+        <div class="status-bar light-bg"><span>12:00</span><span>85% 🔋</span></div>
+        <div class="app-bar"><div class="app-bar-title">Masuk Akun Jamaah</div></div>
+        <div class="screen-body" style="padding: 24px; justify-content: center; background: #FFFFFF;">
+          <div style="text-align: center; margin-bottom: 24px;">
+            <div style="width: 72px; height: 72px; background: #E8F5E9; border-radius: 20px; display:flex; align-items:center; justify-content:center; margin: 0 auto 14px auto; font-size: 34px; box-shadow: 0 4px 10px rgba(27,94,32,0.15);">
+              🕌
+            </div>
+            <h2 style="font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 4px;">Masjid Baitul Ghafur</h2>
+            <p style="font-size: 11px; color: var(--text-muted);">Bukit Gading Cisoka, Tangerang</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email / Nomor Ponsel</label>
+            <input type="text" class="form-control" value="fadhil@masjidbgc.id" readonly>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="form-label">Kata Sandi</label>
+            <input type="password" class="form-control" value="••••••••••" readonly>
+          </div>
+
+          <button class="btn-primary" style="width: 100%; margin-bottom: 14px;">MASUK KE AKUN</button>
+
+          <div style="text-align: center; font-size: 11px; color: var(--text-muted);">
+            Belum punya akun? <span style="color: var(--primary); font-weight: 700; text-decoration: underline;">Daftar Akun Baru</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 2: Beranda (Home Screen) -->
+    <div class="screen-wrapper">
+      <div class="screen-label">2. Mockup - Beranda (Home)</div>
+      <div class="mobile-frame">
+        <div class="status-bar"><span>12:00</span><span>85% 🔋</span></div>
+        
+        <div class="screen-body">
+          <!-- Green Gradient Header -->
+          <div style="background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%); padding: 16px 16px 20px 16px; border-radius: 0 0 24px 24px;">
+            <!-- Top Logo & Profile -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 24px;">🕌</span>
+                <div>
+                  <div style="font-size: 16px; font-weight: 700; color: #FFFFFF;">Masjid BGC</div>
+                  <div style="font-size: 10.5px; color: rgba(255,255,255,0.8);">Bukit Gading Cisoka, Tangerang</div>
+                </div>
+              </div>
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 13px; border: 1.5px solid rgba(255,255,255,0.4);">
+                F
+              </div>
+            </div>
+
+            <!-- Greeting -->
+            <div style="font-size: 13px; font-weight: 700; color: #FFFFFF; margin-bottom: 10px;">
+              Assalamu'alaikum, Fadhil (Jamaah)
+            </div>
+
+            <!-- Prayer Times Card -->
+            <div class="prayer-card">
+              <div class="prayer-col"><span class="prayer-label">Subuh</span><span class="prayer-time">04:24</span></div>
+              <div class="prayer-col"><span class="prayer-label">Dzuhur</span><span class="prayer-time">11:48</span></div>
+              <div class="prayer-col next-prayer"><span class="prayer-label" style="color:var(--accent-gold); font-weight:700;">Ashar</span><span class="prayer-time">14:58</span></div>
+              <div class="prayer-col"><span class="prayer-label">Maghrib</span><span class="prayer-time">17:54</span></div>
+              <div class="prayer-col"><span class="prayer-label">Isya</span><span class="prayer-time">19:04</span></div>
+            </div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div style="padding: 14px 14px 0 14px;">
+            <!-- Layanan Masjid Section -->
+            <div style="font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
+              Layanan Utama Masjid
+            </div>
+            <div class="service-grid">
+              <div class="service-item"><div class="service-icon-box" style="background: #2563EB;">📢</div><span class="service-name">Warta</span></div>
+              <div class="service-item"><div class="service-icon-box" style="background: #4F46E5;">📅</div><span class="service-name">Kegiatan</span></div>
+              <div class="service-item"><div class="service-icon-box" style="background: #DC2626;">❤️</div><span class="service-name">Donasi</span></div>
+              <div class="service-item"><div class="service-icon-box" style="background: #0D9488;">💳</div><span class="service-name">Keuangan</span></div>
+              <div class="service-item"><div class="service-icon-box" style="background: #1B5E20;">🛡️</div><span class="service-name">Amanah</span></div>
+              <div class="service-item"><div class="service-icon-box" style="background: #D97706;">🤲</div><span class="service-name">Zakat</span></div>
+              <div class="service-item"><div class="service-icon-box" style="background: #78350F;">🐑</div><span class="service-name">Qurban</span></div>
+              <div class="service-item"><div class="service-icon-box" style="background: #7C3AED;">🤝</div><span class="service-name">Bansos</span></div>
+            </div>
+
+            <!-- Highlight Warta -->
+            <div class="card" style="margin-top: 6px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-size: 12px; font-weight: 700; color: var(--primary);">Warta Terkini</span>
+                <span style="font-size: 10px; color: var(--text-muted);">24 Okt 2026</span>
+              </div>
+              <div style="font-size: 12px; font-weight: 700; color: #1F2937; margin-bottom: 4px;">
+                Kajian Akbar Fiqih Ibadah Bersama Ustadz Dr. Khalid
+              </div>
+              <p style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4;">
+                Kajian rutin bulanan jamaah Masjid BGC bertempat di ruang utama lantai 1...
+              </p>
+            </div>
+
+            <!-- Highlight Donasi -->
+            <div class="card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 12px; font-weight: 700; color: var(--text-dark);">Renovasi Kanopi Parkir</span>
+                <span style="background: #E8F5E9; color: var(--primary); font-size: 9.5px; font-weight: 700; padding: 2px 6px; border-radius: 4px;">Aktif</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 63%;"></div></div>
+              <div style="display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 8px;">
+                <span style="color: var(--primary); font-weight: 700;">Rp 28.500.000 (63%)</span>
+                <span style="color: var(--text-muted);">Target: Rp 45 Jt</span>
+              </div>
+              <button class="btn-primary" style="width: 100%; padding: 8px; font-size: 11px;">DONASI SEKARANG</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+          <div class="nav-item active"><span class="nav-icon">🏠</span><span>Beranda</span></div>
+          <div class="nav-item"><span class="nav-icon">📢</span><span>Warta</span></div>
+          <div class="nav-item"><span class="nav-icon">📅</span><span>Kegiatan</span></div>
+          <div class="nav-item"><span class="nav-icon">❤️</span><span>Donasi</span></div>
+          <div class="nav-item"><span class="nav-icon">👤</span><span>Profil</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 3: Warta & Pengumuman -->
+    <div class="screen-wrapper">
+      <div class="screen-label">3. Mockup - Warta & Pengumuman</div>
+      <div class="mobile-frame">
+        <div class="status-bar light-bg"><span>12:00</span><span>85% 🔋</span></div>
+        <div class="app-bar"><div class="app-bar-title">Warta & Pengumuman</div></div>
+        
+        <div class="screen-body" style="padding: 14px;">
+          <!-- Filter Tabs -->
+          <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+            <div style="background: var(--primary); color: white; padding: 5px 12px; border-radius: 16px; font-size: 11px; font-weight: 700;">Semua</div>
+            <div style="background: white; border: 1px solid var(--border); color: var(--text-dark); padding: 5px 12px; border-radius: 16px; font-size: 11px;">Kajian</div>
+            <div style="background: white; border: 1px solid var(--border); color: var(--text-dark); padding: 5px 12px; border-radius: 16px; font-size: 11px;">Sosial</div>
+          </div>
+
+          <!-- Card 1 -->
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="background: #DBEAFE; color: #1D4ED8; font-size: 9.5px; font-weight: 700; padding: 2px 6px; border-radius: 4px;">Agenda</span>
+              <span style="font-size: 10px; color: var(--text-muted);">28 Okt 2026</span>
+            </div>
+            <div style="font-size: 12.5px; font-weight: 700; margin-bottom: 4px;">Kajian Subuh Akbar & Sarapan Jamaah</div>
+            <p style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4;">Diadakan hari Ahad di Masjid BGC dengan pemateri Ustadz Ridwan, Lc.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="background: #DCFCE7; color: #15803D; font-size: 9.5px; font-weight: 700; padding: 2px 6px; border-radius: 4px;">Transparansi</span>
+              <span style="font-size: 10px; color: var(--text-muted);">25 Okt 2026</span>
+            </div>
+            <div style="font-size: 12.5px; font-weight: 700; margin-bottom: 4px;">Laporan Penyaluran Santunan Yatim & Dhuafa</div>
+            <p style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4;">Telah disalurkan bantuan sembako dan santunan tunai kepada 45 mustahik di sekitar Cisoka.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span style="background: #FEF3C7; color: #B45309; font-size: 9.5px; font-weight: 700; padding: 2px 6px; border-radius: 4px;">Kerja Bakti</span>
+              <span style="font-size: 10px; color: var(--text-muted);">22 Okt 2026</span>
+            </div>
+            <div style="font-size: 12.5px; font-weight: 700; margin-bottom: 4px;">Gotong Royong Kebersihan Karpet & Sanitasi</div>
+            <p style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4;">Mengundang segenap jamaah dalam persiapan sholat Jumat bersama pengurus DKM.</p>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <div class="nav-item"><span class="nav-icon">🏠</span><span>Beranda</span></div>
+          <div class="nav-item active"><span class="nav-icon">📢</span><span>Warta</span></div>
+          <div class="nav-item"><span class="nav-icon">📅</span><span>Kegiatan</span></div>
+          <div class="nav-item"><span class="nav-icon">❤️</span><span>Donasi</span></div>
+          <div class="nav-item"><span class="nav-icon">👤</span><span>Profil</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 4: Agenda Kegiatan -->
+    <div class="screen-wrapper">
+      <div class="screen-label">4. Mockup - Agenda Kegiatan</div>
+      <div class="mobile-frame">
+        <div class="status-bar light-bg"><span>12:00</span><span>85% 🔋</span></div>
+        <div class="app-bar"><div class="app-bar-title">Agenda & Kajian Masjid</div></div>
+        
+        <div class="screen-body" style="padding: 14px;">
+          <!-- Event Item 1 -->
+          <div class="card" style="display: flex; gap: 12px; align-items: center;">
+            <div style="width: 52px; height: 56px; background: #E8F5E9; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1.5px solid var(--primary-light);">
+              <span style="font-size: 10px; font-weight: 700; color: var(--primary);">AHAD</span>
+              <span style="font-size: 15px; font-weight: 900; color: var(--primary);">26</span>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-dark);">Kajian Riyadhus Shalihin</div>
+              <div style="font-size: 10.5px; color: var(--text-muted); margin: 2px 0;">🎙️ Ustadz Ahmad Fauzi, Lc.</div>
+              <div style="font-size: 10px; color: var(--primary); font-weight: 600;">⏰ 06:00 - 07:30 WIB • Lt. 1</div>
+            </div>
+          </div>
+
+          <!-- Event Item 2 -->
+          <div class="card" style="display: flex; gap: 12px; align-items: center;">
+            <div style="width: 52px; height: 56px; background: #FEF3C7; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1.5px solid var(--accent-gold);">
+              <span style="font-size: 10px; font-weight: 700; color: #B45309;">SELASA</span>
+              <span style="font-size: 15px; font-weight: 900; color: #B45309;">28</span>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-dark);">Tahsin & Tajwid Al-Qur'an</div>
+              <div style="font-size: 10.5px; color: var(--text-muted); margin: 2px 0;">🎙️ Ustadz H. Ridwan</div>
+              <div style="font-size: 10px; color: #B45309; font-weight: 600;">⏰ Ba'da Isya - 20:30 WIB</div>
+            </div>
+          </div>
+
+          <!-- Event Item 3 -->
+          <div class="card" style="display: flex; gap: 12px; align-items: center;">
+            <div style="width: 52px; height: 56px; background: #EDE9FE; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1.5px solid #8B5CF6;">
+              <span style="font-size: 10px; font-weight: 700; color: #6D28D9;">SABTU</span>
+              <span style="font-size: 15px; font-weight: 900; color: #6D28D9;">01</span>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-dark);">Kajian Muslimah & Parenting</div>
+              <div style="font-size: 10.5px; color: var(--text-muted); margin: 2px 0;">🎙️ Ustadzah Fatimah, M.Pd.</div>
+              <div style="font-size: 10px; color: #6D28D9; font-weight: 600;">⏰ 09:00 - 11:00 WIB • Lt. 2</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <div class="nav-item"><span class="nav-icon">🏠</span><span>Beranda</span></div>
+          <div class="nav-item"><span class="nav-icon">📢</span><span>Warta</span></div>
+          <div class="nav-item active"><span class="nav-icon">📅</span><span>Kegiatan</span></div>
+          <div class="nav-item"><span class="nav-icon">❤️</span><span>Donasi</span></div>
+          <div class="nav-item"><span class="nav-icon">👤</span><span>Profil</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 5: Form Donasi -->
+    <div class="screen-wrapper">
+      <div class="screen-label">5. Mockup - Form Donasi</div>
+      <div class="mobile-frame">
+        <div class="status-bar light-bg"><span>12:00</span><span>85% 🔋</span></div>
+        <div class="app-bar">
+          <span style="font-size: 18px; cursor: pointer;">←</span>
+          <div class="app-bar-title">Donasi Online BGC</div>
+        </div>
+        
+        <div class="screen-body" style="padding: 14px;">
+          <!-- Campaign Info Card -->
+          <div class="card" style="border-left: 4px solid var(--primary);">
+            <div style="font-size: 10px; color: var(--text-muted);">Program Donasi:</div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--primary);">Renovasi Kanopi Parkir Masjid</div>
+          </div>
+
+          <!-- Preset Amounts Grid -->
+          <div style="font-size: 11.5px; font-weight: 700; margin-bottom: 8px;">Pilih Nominal Infaq</div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px;">
+            <div style="padding: 10px 4px; text-align: center; border: 1.5px solid var(--border); border-radius: 8px; font-size: 11.5px; font-weight: 700; background: white;">Rp 25.000</div>
+            <div style="padding: 10px 4px; text-align: center; border: 1.5px solid var(--primary); border-radius: 8px; font-size: 11.5px; font-weight: 700; background: #E8F5E9; color: var(--primary);">Rp 50.000</div>
+            <div style="padding: 10px 4px; text-align: center; border: 1.5px solid var(--border); border-radius: 8px; font-size: 11.5px; font-weight: 700; background: white;">Rp 100.000</div>
+            <div style="padding: 10px 4px; text-align: center; border: 1.5px solid var(--border); border-radius: 8px; font-size: 11.5px; font-weight: 700; background: white;">Rp 250.000</div>
+            <div style="padding: 10px 4px; text-align: center; border: 1.5px solid var(--border); border-radius: 8px; font-size: 11.5px; font-weight: 700; background: white;">Rp 500.000</div>
+            <div style="padding: 10px 4px; text-align: center; border: 1.5px solid var(--border); border-radius: 8px; font-size: 11.5px; font-weight: 700; background: white;">Rp 1.000.000</div>
+          </div>
+
+          <!-- Doa input -->
+          <div class="form-group">
+            <label class="form-label">Doa / Pesan Khusus (Opsional)</label>
+            <input type="text" class="form-control" placeholder="Semoga barokah untuk seluruh jamaah..." value="Semoga barokah untuk seluruh jamaah..." readonly>
+          </div>
+
+          <!-- Payment Method -->
+          <div style="font-size: 11.5px; font-weight: 700; margin-bottom: 8px;">Metode Pembayaran</div>
+          <div class="card" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; margin-bottom: 16px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 20px;">📱</span>
+              <div>
+                <div style="font-size: 12px; font-weight: 700;">QRIS Resmi Masjid BGC</div>
+                <div style="font-size: 10px; color: var(--text-muted);">Gopay, OVO, Dana, Shopee, BCA</div>
+              </div>
+            </div>
+            <div style="width: 16px; height: 16px; border-radius: 50%; background: var(--primary); display:flex; align-items:center; justify-content:center; color:white; font-size:10px;">✓</div>
+          </div>
+
+          <button class="btn-primary" style="width: 100%; margin-top: auto;">LANJUTKAN BAYAR RP 50.000</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 6: Transparansi Keuangan -->
+    <div class="screen-wrapper">
+      <div class="screen-label">6. Mockup - Transparansi Kas</div>
+      <div class="mobile-frame">
+        <div class="status-bar light-bg"><span>12:00</span><span>85% 🔋</span></div>
+        <div class="app-bar"><div class="app-bar-title">Transparansi Keuangan</div></div>
+        
+        <div class="screen-body" style="padding: 14px;">
+          <!-- Saldo Utama Card -->
+          <div class="card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; text-align: center; padding: 18px;">
+            <div style="font-size: 11px; opacity: 0.9;">Total Saldo Kas Terkini</div>
+            <div style="font-size: 24px; font-weight: 900; margin: 4px 0; letter-spacing: 0.5px;">Rp 84.750.000</div>
+            <div style="font-size: 10px; opacity: 0.85;">Status Audit DKM: Valid & Akuntabel</div>
+          </div>
+
+          <!-- Cashflow Overview -->
+          <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+            <div class="card" style="flex: 1; margin: 0; padding: 12px;">
+              <div style="font-size: 10.5px; color: var(--text-muted);">Pemasukan (Okt)</div>
+              <div style="font-size: 13.5px; font-weight: 700; color: #16A34A; margin-top: 2px;">+Rp 32.100.000</div>
+            </div>
+            <div class="card" style="flex: 1; margin: 0; padding: 12px;">
+              <div style="font-size: 10.5px; color: var(--text-muted);">Pengeluaran (Okt)</div>
+              <div style="font-size: 13.5px; font-weight: 700; color: #DC2626; margin-top: 2px;">-Rp 18.450.000</div>
+            </div>
+          </div>
+
+          <!-- Alokasi Program -->
+          <div class="card">
+            <div style="font-size: 12px; font-weight: 700; margin-bottom: 10px;">Alokasi Amanah Dana Kas</div>
+            
+            <div style="margin-bottom: 8px;">
+              <div style="display: flex; justify-content: space-between; font-size: 10.5px;"><span>Operasional & Listrik</span><span style="font-weight:700;">35%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width: 35%; background: #2563EB;"></div></div>
+            </div>
+
+            <div style="margin-bottom: 8px;">
+              <div style="display: flex; justify-content: space-between; font-size: 10.5px;"><span>Kegiatan Dakwah</span><span style="font-weight:700;">25%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width: 25%; background: var(--primary);"></div></div>
+            </div>
+
+            <div style="margin-bottom: 8px;">
+              <div style="display: flex; justify-content: space-between; font-size: 10.5px;"><span>Sosial & Santunan</span><span style="font-weight:700;">25%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width: 25%; background: var(--accent-gold);"></div></div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 10.5px;"><span>Pemeliharaan Fisik</span><span style="font-weight:700;">15%</span></div>
+              <div class="progress-track"><div class="progress-fill" style="width: 15%; background: #7C3AED;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <div class="nav-item"><span class="nav-icon">🏠</span><span>Beranda</span></div>
+          <div class="nav-item"><span class="nav-icon">📢</span><span>Warta</span></div>
+          <div class="nav-item"><span class="nav-icon">📅</span><span>Kegiatan</span></div>
+          <div class="nav-item"><span class="nav-icon">❤️</span><span>Donasi</span></div>
+          <div class="nav-item"><span class="nav-icon">👤</span><span>Profil</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 7: Profil Jamaah -->
+    <div class="screen-wrapper">
+      <div class="screen-label">7. Mockup - Profil Jamaah</div>
+      <div class="mobile-frame">
+        <div class="status-bar light-bg"><span>12:00</span><span>85% 🔋</span></div>
+        <div class="app-bar"><div class="app-bar-title">Profil Saya</div></div>
+        
+        <div class="screen-body" style="padding: 14px;">
+          <!-- Profile Badge Card -->
+          <div class="card" style="display: flex; align-items: center; gap: 14px; padding: 16px;">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; font-weight: 700;">
+              F
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: var(--text-dark);">Fadhil Bachtiar</div>
+              <div style="font-size: 11px; color: var(--text-muted);">fadhil@masjidbgc.id</div>
+              <div style="display: inline-block; background: #E8F5E9; color: var(--primary); font-size: 9.5px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 4px;">
+                Jamaah Aktif BGC
+              </div>
+            </div>
+          </div>
+
+          <!-- Menu List -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; margin: 0;">
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600;">
+                <span>📜</span><span>Riwayat Donasi Saya</span>
+              </div>
+              <span style="font-size: 11px; color: var(--primary); font-weight: 700;">4 Donasi ›</span>
+            </div>
+
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; margin: 0;">
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600;">
+                <span>🔔</span><span>Pengingat Adzan & Sholat</span>
+              </div>
+              <span style="font-size: 11px; color: var(--text-muted);">Aktif ›</span>
+            </div>
+
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; margin: 0;">
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600;">
+                <span>ℹ️</span><span>Tentang DKM Masjid BGC</span>
+              </div>
+              <span style="font-size: 11px; color: var(--text-muted);">v1.0.0 ›</span>
+            </div>
+          </div>
+
+          <button class="btn-primary" style="margin-top: auto; background: #DC2626; box-shadow: none;">KELUAR DARI AKUN</button>
+        </div>
+
+        <div class="bottom-nav">
+          <div class="nav-item"><span class="nav-icon">🏠</span><span>Beranda</span></div>
+          <div class="nav-item"><span class="nav-icon">📢</span><span>Warta</span></div>
+          <div class="nav-item"><span class="nav-icon">📅</span><span>Kegiatan</span></div>
+          <div class="nav-item"><span class="nav-icon">❤️</span><span>Donasi</span></div>
+          <div class="nav-item active"><span class="nav-icon">👤</span><span>Profil</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

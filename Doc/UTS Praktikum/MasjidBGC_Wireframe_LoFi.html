@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masjid BGC - Wireframe Lo-Fi (Android 360x800)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    body {
+      background-color: #E5E7EB;
+      padding: 40px 20px;
+      color: #1F2937;
+    }
+    .header-banner {
+      max-width: 1560px;
+      margin: 0 auto 30px auto;
+      background: #FFFFFF;
+      padding: 24px 32px;
+      border-radius: 12px;
+      border: 1px solid #D1D5DB;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header-banner h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+    .header-banner p {
+      font-size: 14px;
+      color: #6B7280;
+    }
+    .board {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .screen-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .screen-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #4B5563;
+      margin-bottom: 10px;
+      background: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #D1D5DB;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Standard Android 360 x 800 Frame */
+    .mobile-frame {
+      width: 360px;
+      height: 800px;
+      background-color: #FFFFFF;
+      border: 2px solid #9CA3AF;
+      border-radius: 28px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Android Status Bar */
+    .status-bar {
+      height: 24px;
+      background: #F3F4F6;
+      border-bottom: 1px solid #E5E7EB;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 14px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #6B7280;
+      flex-shrink: 0;
+    }
+
+    /* AppBar */
+    .app-bar {
+      height: 52px;
+      background: #F3F4F6;
+      border-bottom: 1px solid #D1D5DB;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .app-bar-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #374151;
+    }
+
+    /* Content Area */
+    .screen-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px;
+      background: #FAFAFA;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+      height: 56px;
+      background: #FFFFFF;
+      border-top: 1px solid #D1D5DB;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-shrink: 0;
+      padding: 0 4px;
+    }
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      font-size: 10px;
+      color: #9CA3AF;
+      font-weight: 500;
+    }
+    .nav-item.active {
+      color: #1F2937;
+      font-weight: 700;
+    }
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      background: #D1D5DB;
+      border-radius: 4px;
+    }
+    .nav-item.active .nav-icon {
+      background: #4B5563;
+    }
+
+    /* Wireframe Components */
+    .wire-box {
+      border: 1px dashed #9CA3AF;
+      background: #F3F4F6;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .wire-rect {
+      background: #E5E7EB;
+      border-radius: 4px;
+    }
+    .wire-text-title {
+      height: 14px;
+      width: 65%;
+      background: #4B5563;
+      border-radius: 3px;
+      margin-bottom: 6px;
+    }
+    .wire-text-sub {
+      height: 10px;
+      width: 85%;
+      background: #9CA3AF;
+      border-radius: 3px;
+      margin-bottom: 4px;
+    }
+    .wire-btn {
+      height: 40px;
+      background: #4B5563;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .wire-input {
+      height: 40px;
+      border: 1px solid #9CA3AF;
+      background: #FFFFFF;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      color: #9CA3AF;
+      font-size: 11px;
+    }
+    .wire-grid-menu {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 4px 0;
+    }
+    .wire-menu-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .wire-circle-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #E5E7EB;
+      border: 1px solid #9CA3AF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 600;
+      color: #4B5563;
+    }
+    .wire-menu-label {
+      font-size: 9px;
+      color: #6B7280;
+      font-weight: 600;
+      text-align: center;
+    }
+    .prayer-times-bar {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #9CA3AF;
+      background: #E5E7EB;
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+    .prayer-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-size: 9px;
+    }
+    .prayer-name { color: #6B7280; font-weight: 500; }
+    .prayer-clock { color: #111827; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <div class="header-banner">
+    <h1>Wireframe Masjid BGC (Low-Fidelity)</h1>
+    <p>Standar Device: Android 360 × 800 px | Alur Utama: Jamaah Flow (Auth, Beranda, Warta, Agenda, Donasi, Transparansi, Profil)</p>
+  </div>
+
+  <div class="board">
+
+    <!-- Screen 1: Login / Auth -->
+    <div class="screen-wrapper">
+      <div class="screen-label">1. Wireframe - Login</div>
+      <div class="mobile-frame">
+        <div class="status-bar"><span>12:00</span><span>LTE 85%</span></div>
+        <div class="screen-body" style="justify-content: center; padding: 24px;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <div style="width: 60px; height: 60px; border: 2px dashed #4B5563; border-radius: 12px; margin: 0 auto 12px auto; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:bold;">[LOGO]</div>
+            <div class="wire-text-title" style="margin: 0 auto 6px auto; width: 70%;"></div>
+            <div class="wire-text-sub" style="margin: 0 auto; width: 85%;"></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap: 12px;">
+            <div class="wire-input">[Input] Email / No. WhatsApp</div>
+            <div class="wire-input">[Input] Password (Kata Sandi)</div>
+            <div class="wire-btn">MASUK KE AKUN</div>
+            <div style="text-align: center; font-size: 10px; color: #6B7280; margin-top: 8px;">
+              Belum punya akun? <span style="font-weight: 700; text-decoration: underline;">Daftar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 2: Beranda (Home) -->
+    <div class="screen-wrapper">
+      <div class="screen-label">2. Wireframe - Beranda</div>
+      <div class="mobile-frame">
+        <div class="status-bar"><span>12:00</span><span>LTE 85%</span></div>
+        <div class="screen-body">
+          <!-- Header Area -->
+          <div class="wire-box" style="background: #E5E7EB; border: 1px solid #9CA3AF;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <div>
+                <div style="font-weight: 700; font-size: 13px;">Masjid BGC</div>
+                <div style="font-size: 10px; color: #6B7280;">Bukit Gading Cisoka</div>
+              </div>
+              <div style="width: 28px; height: 28px; border-radius: 50%; background: #9CA3AF;"></div>
+            </div>
+            <div style="font-size: 11px; font-weight: 600; margin-bottom: 8px;">Assalamu'alaikum, Jamaah</div>
+            <!-- Jadwal Sholat -->
+            <div class="prayer-times-bar">
+              <div class="prayer-slot"><span class="prayer-name">Subuh</span><span class="prayer-clock">04:24</span></div>
+              <div class="prayer-slot"><span class="prayer-name">Dzuhur</span><span class="prayer-clock">11:48</span></div>
+              <div class="prayer-slot"><span class="prayer-name">Ashar</span><span class="prayer-clock">14:58</span></div>
+              <div class="prayer-slot"><span class="prayer-name">Maghrib</span><span class="prayer-clock">17:54</span></div>
+              <div class="prayer-slot"><span class="prayer-name">Isya</span><span class="prayer-clock">19:04</span></div>
+            </div>
+          </div>
+
+          <!-- Quick Menu -->
+          <div>
+            <div style="font-size: 11px; font-weight: 700; margin-bottom: 6px;">Layanan Masjid</div>
+            <div class="wire-grid-menu">
+              <div class="wire-menu-item"><div class="wire-circle-icon">Warta</div><div class="wire-menu-label">Warta</div></div>
+              <div class="wire-menu-item"><div class="wire-circle-icon">Agenda</div><div class="wire-menu-label">Kegiatan</div></div>
+              <div class="wire-menu-item"><div class="wire-circle-icon">Infaq</div><div class="wire-menu-label">Donasi</div></div>
+              <div class="wire-menu-item"><div class="wire-circle-icon">Kas</div><div class="wire-menu-label">Keuangan</div></div>
+              <div class="wire-menu-item"><div class="wire-circle-icon">Amanah</div><div class="wire-menu-label">Transparansi</div></div>
+              <div class="wire-menu-item"><div class="wire-circle-icon">Zakat</div><div class="wire-menu-label">Zakat</div></div>
+              <div class="wire-menu-item"><div class="wire-circle-icon">Qurban</div><div class="wire-menu-label">Qurban</div></div>
+              <div class="wire-menu-item"><div class="wire-circle-icon">Bansos</div><div class="wire-menu-label">Bansos</div></div>
+            </div>
+          </div>
+
+          <!-- Highlight Warta -->
+          <div class="wire-box">
+            <div style="font-size: 11px; font-weight: 700; margin-bottom: 6px;">Warta Terkini</div>
+            <div class="wire-rect" style="height: 60px; margin-bottom: 8px;"></div>
+            <div class="wire-text-title"></div>
+            <div class="wire-text-sub"></div>
+          </div>
+
+          <!-- Highlight Donasi -->
+          <div class="wire-box">
+            <div style="font-size: 11px; font-weight: 700; margin-bottom: 6px;">Program Donasi</div>
+            <div class="wire-text-title"></div>
+            <div class="wire-rect" style="height: 6px; border-radius: 3px; margin: 6px 0;"></div>
+            <div style="display:flex; justify-content:space-between; font-size: 9px; color:#6B7280; margin-bottom: 8px;">
+              <span>Terkumpul: Rp 28.5 Jt</span><span>Target: Rp 45 Jt</span>
+            </div>
+            <div class="wire-btn" style="height: 32px; font-size: 10px;">DONASI SEKARANG</div>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <div class="nav-item active"><div class="nav-icon"></div>Beranda</div>
+          <div class="nav-item"><div class="nav-icon"></div>Warta</div>
+          <div class="nav-item"><div class="nav-icon"></div>Kegiatan</div>
+          <div class="nav-item"><div class="nav-icon"></div>Donasi</div>
+          <div class="nav-item"><div class="nav-icon"></div>Profil</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 3: Warta / Pengumuman -->
+    <div class="screen-wrapper">
+      <div class="screen-label">3. Wireframe - Warta</div>
+      <div class="mobile-frame">
+        <div class="status-bar"><span>12:00</span><span>LTE 85%</span></div>
+        <div class="app-bar"><div class="app-bar-title">Warta & Pengumuman</div></div>
+        <div class="screen-body">
+          <!-- Filter chips -->
+          <div style="display: flex; gap: 6px;">
+            <div style="padding: 4px 10px; background: #4B5563; color: white; border-radius: 14px; font-size: 10px; font-weight: 600;">Semua</div>
+            <div style="padding: 4px 10px; background: #E5E7EB; border: 1px solid #9CA3AF; border-radius: 14px; font-size: 10px;">Kajian</div>
+            <div style="padding: 4px 10px; background: #E5E7EB; border: 1px solid #9CA3AF; border-radius: 14px; font-size: 10px;">Sosial</div>
+          </div>
+          <!-- News Card 1 -->
+          <div class="wire-box">
+            <div class="wire-rect" style="height: 70px; margin-bottom: 8px;"></div>
+            <div class="wire-text-title" style="width: 80%;"></div>
+            <div class="wire-text-sub"></div>
+            <div style="font-size: 9px; color: #9CA3AF; margin-top: 6px;">Dipublikasi: 24 Okt 2026</div>
+          </div>
+          <!-- News Card 2 -->
+          <div class="wire-box">
+            <div class="wire-rect" style="height: 70px; margin-bottom: 8px;"></div>
+            <div class="wire-text-title" style="width: 75%;"></div>
+            <div class="wire-text-sub"></div>
+            <div style="font-size: 9px; color: #9CA3AF; margin-top: 6px;">Dipublikasi: 20 Okt 2026</div>
+          </div>
+        </div>
+        <div class="bottom-nav">
+          <div class="nav-item"><div class="nav-icon"></div>Beranda</div>
+          <div class="nav-item active"><div class="nav-icon"></div>Warta</div>
+          <div class="nav-item"><div class="nav-icon"></div>Kegiatan</div>
+          <div class="nav-item"><div class="nav-icon"></div>Donasi</div>
+          <div class="nav-item"><div class="nav-icon"></div>Profil</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 4: Agenda Kegiatan -->
+    <div class="screen-wrapper">
+      <div class="screen-label">4. Wireframe - Kegiatan</div>
+      <div class="mobile-frame">
+        <div class="status-bar"><span>12:00</span><span>LTE 85%</span></div>
+        <div class="app-bar"><div class="app-bar-title">Agenda Masjid</div></div>
+        <div class="screen-body">
+          <div class="wire-box">
+            <div style="display: flex; gap: 10px;">
+              <div style="width: 50px; height: 50px; background: #D1D5DB; border-radius: 6px; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size: 9px; font-weight:bold;">
+                <span>AHAD</span><span>26 OKT</span>
+              </div>
+              <div style="flex:1;">
+                <div class="wire-text-title"></div>
+                <div class="wire-text-sub" style="width: 90%;"></div>
+                <div style="font-size: 9px; color:#6B7280; margin-top: 4px;">Pukul 06:00 - 07:30 WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="wire-box">
+            <div style="display: flex; gap: 10px;">
+              <div style="width: 50px; height: 50px; background: #D1D5DB; border-radius: 6px; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size: 9px; font-weight:bold;">
+                <span>RABU</span><span>29 OKT</span>
+              </div>
+              <div style="flex:1;">
+                <div class="wire-text-title"></div>
+                <div class="wire-text-sub" style="width: 90%;"></div>
+                <div style="font-size: 9px; color:#6B7280; margin-top: 4px;">Ba'da Isya - Selesai</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-nav">
+          <div class="nav-item"><div class="nav-icon"></div>Beranda</div>
+          <div class="nav-item"><div class="nav-icon"></div>Warta</div>
+          <div class="nav-item active"><div class="nav-icon"></div>Kegiatan</div>
+          <div class="nav-item"><div class="nav-icon"></div>Donasi</div>
+          <div class="nav-item"><div class="nav-icon"></div>Profil</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 5: Form Donasi -->
+    <div class="screen-wrapper">
+      <div class="screen-label">5. Wireframe - Form Donasi</div>
+      <div class="mobile-frame">
+        <div class="status-bar"><span>12:00</span><span>LTE 85%</span></div>
+        <div class="app-bar"><div class="app-bar-title">Donasi Online</div></div>
+        <div class="screen-body">
+          <div class="wire-box">
+            <div style="font-size: 11px; font-weight: 700; margin-bottom: 4px;">Program: Renovasi Kanopi</div>
+            <div style="font-size: 9px; color: #6B7280;">Rekening Penampung: BSI 7123-XXXX-XX</div>
+          </div>
+          <div style="font-size: 11px; font-weight: 700;">Pilih Nominal Cepat</div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
+            <div class="wire-btn" style="height: 32px; font-size: 9px; background: #E5E7EB; color: #1F2937; border: 1px solid #9CA3AF;">25.000</div>
+            <div class="wire-btn" style="height: 32px; font-size: 9px; background: #4B5563; color: #FFFFFF;">50.000</div>
+            <div class="wire-btn" style="height: 32px; font-size: 9px; background: #E5E7EB; color: #1F2937; border: 1px solid #9CA3AF;">100.000</div>
+          </div>
+          <div class="wire-input">[Input] Nominal Lainnya (Rp)</div>
+          <div class="wire-input">[Input] Doa / Niat Kebaikan (Opsional)</div>
+          <div style="font-size: 11px; font-weight: 700; margin-top: 4px;">Metode Pembayaran</div>
+          <div class="wire-box" style="display:flex; justify-content:space-between; align-items:center; padding: 10px;">
+            <span style="font-size: 10px; font-weight: 600;">QRIS (Gopay/OVO/ShopeePay/BCA)</span>
+            <div style="width: 14px; height: 14px; border-radius: 50%; background: #4B5563;"></div>
+          </div>
+          <div class="wire-btn" style="margin-top: auto;">LANJUTKAN DONASI</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 6: Transparansi Keuangan -->
+    <div class="screen-wrapper">
+      <div class="screen-label">6. Wireframe - Transparansi</div>
+      <div class="mobile-frame">
+        <div class="status-bar"><span>12:00</span><span>LTE 85%</span></div>
+        <div class="app-bar"><div class="app-bar-title">Transparansi Keuangan</div></div>
+        <div class="screen-body">
+          <div class="wire-box" style="text-align: center; padding: 16px;">
+            <div style="font-size: 10px; color: #6B7280;">Saldo Kas Utama Masjid</div>
+            <div style="font-size: 18px; font-weight: 700; margin: 4px 0;">Rp 84.750.000</div>
+            <div style="font-size: 9px; color: #4B5563;">Update Laporan: Oktober 2026</div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <div class="wire-box" style="flex:1;">
+              <div style="font-size: 9px; color:#6B7280;">Total Masuk</div>
+              <div style="font-size: 12px; font-weight:700;">+Rp 32.1 Jt</div>
+            </div>
+            <div class="wire-box" style="flex:1;">
+              <div style="font-size: 9px; color:#6B7280;">Total Keluar</div>
+              <div style="font-size: 12px; font-weight:700;">-Rp 18.4 Jt</div>
+            </div>
+          </div>
+          <div class="wire-box">
+            <div style="font-size: 11px; font-weight: 700; margin-bottom: 8px;">Alokasi Pengeluaran Amanah</div>
+            <div class="wire-rect" style="height: 10px; border-radius: 4px; margin-bottom: 6px;"></div>
+            <div style="font-size: 9px; color: #4B5563;">35% Operasional • 25% Dakwah • 25% Sosial • 15% Fisik</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 7: Profil Jamaah -->
+    <div class="screen-wrapper">
+      <div class="screen-label">7. Wireframe - Profil</div>
+      <div class="mobile-frame">
+        <div class="status-bar"><span>12:00</span><span>LTE 85%</span></div>
+        <div class="app-bar"><div class="app-bar-title">Profil Jamaah</div></div>
+        <div class="screen-body">
+          <div class="wire-box" style="display: flex; gap: 12px; align-items:center;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #9CA3AF;"></div>
+            <div>
+              <div style="font-size: 12px; font-weight: 700;">Fadhil (Jamaah)</div>
+              <div style="font-size: 9px; color: #6B7280;">fadhil@masjidbgc.id</div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="wire-box" style="padding: 10px; font-size: 11px; display:flex; justify-content:space-between;">
+              <span>Riwayat Donasi Saya</span><span>></span>
+            </div>
+            <div class="wire-box" style="padding: 10px; font-size: 11px; display:flex; justify-content:space-between;">
+              <span>Pengaturan Notifikasi</span><span>></span>
+            </div>
+            <div class="wire-box" style="padding: 10px; font-size: 11px; display:flex; justify-content:space-between;">
+              <span>Tentang Masjid BGC</span><span>></span>
+            </div>
+          </div>
+          <div class="wire-btn" style="margin-top: auto; background: #9CA3AF; color:#1F2937;">KELUAR (LOGOUT)</div>
+        </div>
+        <div class="bottom-nav">
+          <div class="nav-item"><div class="nav-icon"></div>Beranda</div>
+          <div class="nav-item"><div class="nav-icon"></div>Warta</div>
+          <div class="nav-item"><div class="nav-icon"></div>Kegiatan</div>
+          <div class="nav-item"><div class="nav-icon"></div>Donasi</div>
+          <div class="nav-item active"><div class="nav-icon"></div>Profil</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
